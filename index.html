@@ -150,7 +150,7 @@
 <li><p>3.登录上述网址，发现内容和该仓库中的 README.md 文件中的内容一模一样。</p>
 <h3 id="第三步-关联-Github-网页仓库和本地-Hexo-博客"><a href="#第三步-关联-Github-网页仓库和本地-Hexo-博客" class="headerlink" title="第三步 关联 Github 网页仓库和本地 Hexo 博客"></a>第三步 关联 Github 网页仓库和本地 Hexo 博客</h3></li>
 </ul>
-<h2 id="一、配置-SSH-key（这个操作似乎只能在-git-bash-中完成）"><a href="#一、配置-SSH-key（这个操作似乎只能在-git-bash-中完成）" class="headerlink" title="一、配置 SSH key（这个操作似乎只能在 git bash 中完成）"></a>一、配置 SSH key（这个操作似乎只能在 git bash 中完成）</h2><p> 为什么要配置这个呢？因为你提交代码肯定要拥有你的 github 权限才可以，但是直接 使用用户名和密码太不安全了，所以我们使用 ssh key 来解决本地和服务器的连接问题。</p>
+<h4 id="一、配置-SSH-key（这个操作似乎只能在-git-bash-中完成）"><a href="#一、配置-SSH-key（这个操作似乎只能在-git-bash-中完成）" class="headerlink" title="一、配置 SSH key（这个操作似乎只能在 git bash 中完成）"></a>一、配置 SSH key（这个操作似乎只能在 git bash 中完成）</h4><p> 为什么要配置这个呢？因为你提交代码肯定要拥有你的 github 权限才可以，但是直接 使用用户名和密码太不安全了，所以我们使用 ssh key 来解决本地和服务器的连接问题。</p>
 <ul>
 <li><p>1.创建 ssh key: 第一条指令是查看本机中是否存在 ssh key；如果存在就可以直接使 用；若不存在，则需要先生成。第二条指令就是用来生成 ssh key,输入：输入 ssh-keygen -t rsa -C “github 邮箱名称”<br><img src="/2019/11/06/test/24%5B1%5D.png" alt="avatar"></p>
 <p>然后连续 3 次回车，最终会生成一个文件在用户目录下，打开用户目录，找 到.ssh\id_rsa.pub 文件，记事本打开并复制里面的内容，打开你的 github 主页，进入个人设 置 -&gt; SSH and GPG keys -&gt; New SSH key,将复制的内容粘贴至其中。</p>
@@ -178,66 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/06/test/" data-id="ck2nbwgq40002f0i3tn7512b7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-如何搭建个人博客以及相关配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/06/如何搭建个人博客以及相关配置/" class="article-date">
-  <time datetime="2019-11-06T11:29:24.000Z" itemprop="datePublished">2019-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/06/如何搭建个人博客以及相关配置/">如何搭建个人博客以及相关配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="如何搭建个人博客以及相关配置"><a href="#如何搭建个人博客以及相关配置" class="headerlink" title="如何搭建个人博客以及相关配置"></a>如何搭建个人博客以及相关配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一步 Hexo 搭建本地静态网页</span><br></pre></td></tr></table></figure>
-
-<h2 id="一、Hexo-的环境配置——安装-Node-js"><a href="#一、Hexo-的环境配置——安装-Node-js" class="headerlink" title="一、Hexo 的环境配置——安装 Node.js"></a>一、Hexo 的环境配置——安装 Node.js</h2><ul>
-<li><p>1.登录网址为 <a href="https://nodejs.org/en/download/；找到" target="_blank" rel="noopener">https://nodejs.org/en/download/；找到</a> Download 板块。*</p>
-</li>
-<li><p>2.根据本机类型，选择相应的版本下载； 注：如何确定自己电脑的类型呢？解决办法：计算机-&gt;右键-&gt;属性，本机是64位架构 。因此，我这里做如下选择：*<br><img src="/2019/11/06/如何搭建个人博客以及相关配置/blog/source/_posts/title/1%5B1%5D.png" alt="avatar"></p>
-</li>
-<li><p>3.安装下载的 node-v10.16.3-x86 文件，一路 next，即可完成安装。 注：nodejs 默认的安装中会包含环境变量的配置和 npm 工具的安装。<br><img src="/2019/11/06/如何搭建个人博客以及相关配置/blog/source/_posts/title/2%5B1%5D.png" alt="avatar"></p>
-</li>
-<li><p>4.检验是否安装成功：在“开始”菜单中输入 cmd，打开命令行窗口</p>
-</li>
-<li><p>（1） 输入 node –v，若显示版本号，则 nodejs 安装成功；</p>
-</li>
-<li><p>（2） 输入 npm -v，若显示版本号，则 npm 安装成功；<br><img src="/2019/11/06/如何搭建个人博客以及相关配置/blog/source/_posts/title/3%5B1%5D.png" alt="avatar"></p>
-</li>
-<li><p>5.至此，Hexo 的环境配置已经全部完成。 </p>
-</li>
-</ul>
-<h2 id="二、Hexo-的安装"><a href="#二、Hexo-的安装" class="headerlink" title="二、Hexo 的安装"></a>二、Hexo 的安装</h2><ul>
-<li>1.使用 npm 命令安装 Hexo 客户端，输入：npm install -g hexo-cli<br><img src="/2019/11/06/如何搭建个人博客以及相关配置/blog/source/_posts/title/4%5B1%5D.png" alt="avatar"><br>上图表示我们已经成功安装了 Hexo 客户端，且版本号为 2.0.0。</li>
-<li>2.确定自己博客（撰写/更新）的文件夹在本机位置：例如，可以在 D 盘新建一个 blog 的文件夹，然后将命令行切换到这个目录下<br><img src="/2019/11/06/如何搭建个人博客以及相关配置/blog/source/_posts/title/5%5B1%5D.png" alt="avatar"></li>
-<li>3.将该文件夹初始化为 hexo 网页框架所在位置，输入 hexo init:<br><img src="/2019/11/06/如何搭建个人博客以及相关配置/blog/source/_posts/title/6%5B1%5D.png" alt="avatar"></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/11/06/如何搭建个人博客以及相关配置/" data-id="ck2nbwgq70003f0i3z0dvfk73" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/11/06/test/" data-id="ck2nc756s000254i312aranhh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/16/helloccit/" data-id="ck2nbwgq10001f0i3iho4ljqb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/16/helloccit/" data-id="ck2nc756c000154i3onytyj6s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/10/hello-world/" data-id="ck2nbwgpu0000f0i361uxic0m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/10/hello-world/" data-id="ck2nc7567000054i3ro1mwizq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -365,10 +306,6 @@
         
           <li>
             <a href="/2019/11/06/test/">test</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/06/如何搭建个人博客以及相关配置/">如何搭建个人博客以及相关配置</a>
           </li>
         
           <li>
